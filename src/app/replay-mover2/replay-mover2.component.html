@@ -1,0 +1,61 @@
+<h1>Replay Editor</h1>
+
+<div>
+  <label for="input">1. Input your timelines.json:</label>
+  <br />
+  <textarea
+    id="input"
+    [(ngModel)]="input"
+    cols="100"
+    rows="15"
+    (ngModelChange)="analyze()"
+  ></textarea>
+  <br />
+</div>
+<br />
+
+<div>
+  2: Choose the timeline you want to edit:
+  <br />
+  <select [(ngModel)]="selectedTimeline">
+    <option *ngFor="let timeline of timelines">{{timeline}}</option>
+  </select>
+</div>
+<br />
+
+<div *ngIf="selectedTimeline">
+  <div>
+    3: Pick the translation for your position keyframes:
+    <br />
+    <input type="text" name="x" [(ngModel)]="translation.x"><br />
+    <input type="text" name="x" [(ngModel)]="translation.y"><br />
+    <input type="text" name="x" [(ngModel)]="translation.z">
+  </div>
+  <div>
+    4: Pick a time offset. If you go back in time, select negative time offset:<br />
+    Hours: <input type="number" name="x" [(ngModel)]="timeOffset.hours"><br />
+    Minutes: <input type="number" name="x" [(ngModel)]="timeOffset.minutes"><br />
+    Seconds: <input type="number" name="x" [(ngModel)]="timeOffset.seconds"><br />
+    Miliseconds: <input type="number" name="x" [(ngModel)]="timeOffset.miliseconds"><br />
+    <input type="checkbox" [(ngModel)]="negativeTimeOffset">
+  </div>
+  <div>
+    <button type="button" (click)="move()">Move keyframes</button>
+  </div>
+</div>
+<br>
+
+<div *ngIf="output">
+  <label for="input">1. Input your timelines.json:</label>
+  <br />
+  <textarea
+    id="output"
+    [(ngModel)]="output"
+    cols="100"
+    rows="15"
+  ></textarea>
+  <br />
+</div>
+
+
+

@@ -1,0 +1,25 @@
+<textarea
+  [(ngModel)]="input"
+  rows="25"
+  cols="100"
+></textarea>
+
+<br />
+X: <input type="text" [(ngModel)]="translation.x" />
+Y: <input type="text" [(ngModel)]="translation.y" />
+Z: <input type="text" [(ngModel)]="translation.z" />
+<br />
+<br />
+Timeline name: <input type="text" [(ngModel)]="timeline" /><br />
+
+<br />
+<br />
+<button (click)="convert()">Convert</button>
+<br />
+<br />
+
+<textarea
+  [(ngModel)]="output"
+  rows="25"
+  cols="100"
+></textarea>
